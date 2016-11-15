@@ -30,7 +30,7 @@ IntNode *intnode_construct(int value, IntNode *next)
 void print_linked_list(IntNode *p)
 {
 	if (p == NULL) 
-  {
+  	{
 		printf("empty list");
 		return; 
  	}
@@ -39,7 +39,7 @@ void print_linked_list(IntNode *p)
 	   using the format: value1 -> value2 -> value3 -> ... */
      
 	for (; p->next != NULL; p = p->next) 
-  {
+  	{
 		printf("%d -> ", p->value);
 	}
 
@@ -195,10 +195,10 @@ int count(IntNode *head, int target)
 
 	if(head == NULL)
 	{
-    	return 0;
+		return 0;
 	}
 	else
-  {
+  	{
 		for(p = head; p != NULL; p = p->next)
 		{
 			if(p->value == target)
@@ -260,21 +260,21 @@ IntNode *remove_last_one_pointer(IntNode *head)
 {
 	assert(head != NULL);
     
-  if(head->next == NULL) 
+  	if(head->next == NULL) 
 	{
-        /* There is exactly one node in the linked list. */
-        free(head);
-        head = NULL;
-  } 
+		/* There is exactly one node in the linked list. */
+		free(head);
+		head = NULL;
+  	} 
 	else
 	{
-        IntNode *p1;
+		IntNode *p1;
 
-        for (p1 = head; (p1->next)->next != NULL; p1 = p1->next)
-		    {}
-        
-		    p1->next = NULL;
-  }
+		for (p1 = head; (p1->next)->next != NULL; p1 = p1->next)
+		{}
+
+		p1->next = NULL;
+  	}
   
 	return head;
 }
@@ -348,7 +348,7 @@ IntNode *delete(IntNode *head, int index)
 			return head;
 		}
 		else
-    {
+    		{
 			if(index == n+1)
 			{
 				p->next = p->next->next;
@@ -363,6 +363,7 @@ IntNode *delete(IntNode *head, int index)
 			n++;
 		}
 	}
+	
 	assert(0);	// assert; index is INVALID
 }
 
