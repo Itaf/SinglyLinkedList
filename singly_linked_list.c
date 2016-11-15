@@ -188,6 +188,30 @@ IntNode *remove_last(IntNode *head)
 }
 
 
+IntNode *remove_last_one_pointer(IntNode *head)
+{
+	assert(head != NULL);
+    
+  	if(head->next == NULL) 
+	{
+		/* There is exactly one node in the linked list. */
+		free(head);
+		head = NULL;
+  	} 
+	else
+	{
+		IntNode *p1;
+
+		for (p1 = head; (p1->next)->next != NULL; p1 = p1->next)
+		{}
+
+		p1->next = NULL;
+  	}
+  
+	return head;
+}
+
+
 int count(IntNode *head, int target)
 {
 	int count = 0;
@@ -254,30 +278,6 @@ int fetch(IntNode *head, int index)
 	assert(0); 	//if the code gets here, then the index is not valid, and index < 0 or index > i. 
 				      //So, terminate via assert no matter what!
 }	
-
-
-IntNode *remove_last_one_pointer(IntNode *head)
-{
-	assert(head != NULL);
-    
-  	if(head->next == NULL) 
-	{
-		/* There is exactly one node in the linked list. */
-		free(head);
-		head = NULL;
-  	} 
-	else
-	{
-		IntNode *p1;
-
-		for (p1 = head; (p1->next)->next != NULL; p1 = p1->next)
-		{}
-
-		p1->next = NULL;
-  	}
-  
-	return head;
-}
 
 
 IntNode *insert(IntNode *head, int index, int x)
